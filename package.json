@@ -1,0 +1,17 @@
+{
+  "name": "quick-prose",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "editor",
+    "shared"
+  ],
+  "scripts": {
+    "build": "cd ./editor && yarn build",
+    "start": "concurrently 'cd ./editor && yarn watch' 'cd example-react-app && yarn dev'"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
