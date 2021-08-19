@@ -8,6 +8,8 @@ export {
   BaseExtension,
   BlockQuote,
   BlockQuoteExtension,
+  Collab,
+  CollabExtension,
   Extension,
   createSchema,
   createPlugins,

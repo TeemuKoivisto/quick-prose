@@ -6,7 +6,21 @@ declare module '@quick-prose/shared' {
   export type SocketAction = CollabAction
   export type SocketActionType = ECollabActionType
 
-  // Collab
+  // Collab API
+  export interface ISaveCollabStepsParams {
+    version: number
+    steps: Step[]
+    clientID: number
+    origins: Transaction[]
+  }
+  export interface INewStepsResponse {
+    version: number
+    steps: { [key: string]: any }[]
+    clientIDs: number[]
+    usersCount: number
+  }
+
+  // Collab actions
   export enum ECollabActionType {
     COLLAB_JOIN = 'COLLAB:JOIN',
     COLLAB_LEAVE = 'COLLAB:LEAVE',
@@ -18,7 +32,6 @@ declare module '@quick-prose/shared' {
     payload: {
       documentId: string
       userId: string
-      userName: string
     }
   }
   export interface ICollabLeaveAction {

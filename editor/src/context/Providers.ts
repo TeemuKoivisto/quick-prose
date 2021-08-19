@@ -16,12 +16,21 @@ export interface IProviders {
   viewProvider: EditorViewProvider
 }
 
-export const createDefaultProviders = () : IProviders => ({
-  analyticsProvider: new AnalyticsProvider(),
-  apiProvider: new APIProvider(),
-  collabProvider: new CollabProvider(),
-  extensionProvider: new ExtensionProvider(),
-  pluginsProvider: new PluginsProvider(),
-  portalProvider: new PortalProvider(),
-  viewProvider: new EditorViewProvider(),
-})
+export const createDefaultProviders = () : IProviders => {
+  const analyticsProvider = new AnalyticsProvider()
+  const apiProvider = new APIProvider()
+  const extensionProvider = new ExtensionProvider()
+  const pluginsProvider = new PluginsProvider()
+  const portalProvider = new PortalProvider()
+  const viewProvider = new EditorViewProvider()
+  const collabProvider = new CollabProvider(apiProvider, viewProvider)
+  return {
+    analyticsProvider,
+    apiProvider,
+    extensionProvider,
+    pluginsProvider,
+    portalProvider,
+    viewProvider,
+    collabProvider
+  }
+}
